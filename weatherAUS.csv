@@ -1,43 +1,43 @@
-﻿Original Location,Location,RainFallAVG,MinTempAVG,MaxTempAVG
-Adelaide,Adelaide,1.572,12.628,22.945
-Albany,Albany,2.255,12.948,20.073
-Albury,Albury - North,1.926,9.521,22.631
-Alice Springs,Charles,0.869,13.125,29.244
-BadgerysCreek,Badgerys Creek,2.208,11.137,24.023
-Ballarat,Ballarat,1.689,7.355,18.275
-Bendigo,Bendigo,1.621,8.591,21.617
-Brisbane,Brisbane City,3.161,16.411,26.442
-Cairns,Cairns City,5.765,21.199,29.544
-Canberra,Canberra East,1.735,6.828,20.981
-Cobar,Cobar,1.129,13.12,25.834
-CoffsHarbour,Coffs Harbour - North,5.055,14.366,23.916
-Darwin,Darwin City,5.094,23.211,32.541
-GoldCoast,Southport - North,3.729,17.341,25.753
-Hobart,Hobart,1.604,9.079,17.867
-Katherine,Katherine,3.136,20.535,34.939
-Launceston,Launceston,2.012,7.834,18.956
-Melbourne,Melbourne,1.838,11.788,20.86
-MelbourneAirport,Melbourne Airport,1.452,9.974,20.492
-Mildura,Mildura Region,0.945,10.734,24.842
-Moree,Moree Region,1.603,12.786,26.887
-MountGambier,Mount Gambier - East,2.087,8.827,19.828
-Newcastle,Newcastle - Cooks Hill,3.153,13.74,24.098
-Nhil,Nhill Region,0.933,8.993,22.398
-NorahHead,Toukley - Norah Head,3.382,15.375,22.608
-NorfolkIsland,Norfolk Island,3.138,16.84,21.793
-Nuriootpa,Nuriootpa,1.381,9.366,21.715
-PearceRAAF,Pearce,1.634,12.386,26.271
-Penrith,Jamisontown - South Penrith,2.135,12.534,24.732
-Perth,Perth City,1.906,12.923,25.035
-PerthAirport,Perth Airport,1.762,12.58,25.533
-Portland,Portland,2.531,9.586,18.056
-Richmond,Richmond (Vic.),2.153,11.346,24.45
-Sale,Sale,1.513,8.561,20.271
-Sydney,Surry Hills,3.33,14.865,23.002
-SydneyAirport,Sydney Airport,2.995,14.894,23.379
-Townsville,Townsville - South,3.489,20.411,29.363
-Tuggeranong,Tuggeranong - West,2.159,7.246,20.777
-WaggaWagga,Wagga Wagga - East,1.706,9.562,22.961
-Watsonia,Watsonia,1.848,10.126,20.884
-Williamtown,Williamtown - Medowie - Karuah,3.511,12.82,24.147
-Wollongong,Wollongong - East,3.589,14.949,21.477
+﻿Original Location,Location,Lat,Long,RainFallAVG,MinTempAVG,MaxTempAVG
+Adelaide,Adelaide,-34.929075,138.602578,1.572,12.628,22.945
+Albany,Albany,-35.031075,117.89494,2.255,12.948,20.073
+Albury,Albury - North,-36.074771,146.914504,1.926,9.521,22.631
+Alice Springs,Charles,-23.698651,133.882345,0.869,13.125,29.244
+Badgerys Creek,Badgerys Creek,-33.89086,150.742678,2.208,11.137,24.023
+Ballarat,Ballarat,-37.449359,143.734293,1.689,7.355,18.275
+Bendigo,Bendigo,-36.757608,144.27957,1.621,8.591,21.617
+Brisbane,Brisbane City,-27.469309,153.026164,3.161,16.411,26.442
+Cairns,Cairns City,-16.160461,145.269804,5.765,21.199,29.544
+Canberra,Canberra East,-35.283029,149.129026,1.735,6.828,20.981
+Cobar,Cobar,-31.846556,145.457185,1.129,13.12,25.834
+Coffs Harbour,Coffs Harbour - North,-30.290583,153.114278,5.055,14.366,23.916
+Darwin,Darwin City,-12.460477,130.842984,5.094,23.211,32.541
+Gold Coast,Southport - North,-28.058022,153.333977,3.729,17.341,25.753
+Hobart,Hobart,-42.882256,147.325986,1.604,9.079,17.867
+Katherine,Katherine,-14.453207,132.275151,3.136,20.535,34.939
+Launceston,Launceston,-41.43951,147.13763,2.012,7.834,18.956
+Melbourne,Melbourne,-37.825071,144.978682,1.838,11.788,20.86
+Melbourne Airport,Melbourne Airport,-37.677153,144.840302,1.452,9.974,20.492
+Mildura,Mildura Region,-34.199704,142.153732,0.945,10.734,24.842
+Moree,Moree Region,-29.465095,149.827527,1.603,12.786,26.887
+Mount Gambier,Mount Gambier - East,-37.826477,140.775335,2.087,8.827,19.828
+Newcastle,Newcastle - Cooks Hill,-32.9278,151.782607,3.153,13.74,24.098
+Nhil,Nhill Region,-36.33987,141.654406,0.933,8.993,22.398
+Norah Head,Toukley - Norah Head,-33.285533,151.559961,3.382,15.375,22.608
+Norfolk Island,Norfolk Island,29.0408,167.9547,3.138,16.84,21.793
+Nuriootpa,Nuriootpa,-34.472385,138.992565,1.381,9.366,21.715
+Pearce,Pearce,-35.363726,149.083794,1.634,12.386,26.271
+Penrith,Jamisontown - South Penrith,-33.746679,150.699109,2.135,12.534,24.732
+Perth,Perth City,-31.960773,115.834088,1.906,12.923,25.035
+Perth Airport,Perth Airport,-31.940614,115.970601,1.762,12.58,25.533
+Portland,Portland,-38.371829,141.605307,2.531,9.586,18.056
+Richmond,Richmond (Vic.),-37.819635,145.003879,2.153,11.346,24.45
+Sale,Sale,-38.103688,147.063641,1.513,8.561,20.271
+Sydney,Surry Hills,-34.035875,151.194191,3.33,14.865,23.002
+Sydney Airport,Sydney Airport,-33.926157,151.187861,2.995,14.894,23.379
+Townsville,Townsville - South,-19.500216,146.798414,3.489,20.411,29.363
+Tuggeranong,Tuggeranong - West,-35.411616,149.066971,2.159,7.246,20.777
+Wagga Wagga,Wagga Wagga - East,35.1082,147.3598,1.706,9.562,22.961
+Watsonia,Watsonia,-37.711031,145.082287,1.848,10.126,20.884
+Williamtown,Williamtown - Medowie - Karuah,-32.793498,151.840769,3.511,12.82,24.147
+Wollongong,Wollongong - East,-34.428377,150.893892,3.589,14.949,21.477
