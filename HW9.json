@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Australian Rain",
+  "width": 800,
+  "height": 600,
+  "layer": [
+    {
+      "data": {
+        "url": "https://herrahstrings.github.io/DataVis/AUS_MAINLAND_SIMPLIFIED.json",
+        "format": {"type": "topojson", "feature": "Main"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "data": {"url": "https://herrahstrings.github.io/DataVis/weatherAUS.csv"},
+      "projection": {"type": "equirectangular"},
+      "mark": {"type": "text"},
+      "encoding": {
+        "text": {"value": "💧"},
+        "latitude": {"field": "Lat", "type": "quantitative"},
+        "longitude": {"field": "Long", "type": "quantitative"},
+        "size": {
+          "field": "RainFallAVG",
+          "type": "quantitative",
+          "scale": {"domain": [0, 4]},
+          "title": "Average Rainfall (mm)"
+        },
+        "opacity": {
+          "field": "MaxTempAVG",
+          "type": "quantitative",
+          "title": "Average Max Temperature °C"
+        },
+        "tooltip": [
+          {"field": "Location", "type": "nominal", "title": "Location"},
+          {
+            "field": "RainFallAVG",
+            "type": "quantitative",
+            "title": "Average Max Temp °C"
+          },
+          {
+            "field": "RainFallAVG",
+            "type": "quantitative",
+            "title": "Average Railfall (mm)"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
