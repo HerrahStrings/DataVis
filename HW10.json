@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "Australian Climate (2007-2017)",
+  "data": {"url": "herrahstrings.github.io/DataVis/weatherAUS2.csv"},
+  "mark": "line",
+  "encoding": {
+    "x": {
+      "field": "Year_Frac",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": {"tickCount": 11},
+      "scale": {"type": "linear", "domain": [2007, 2018]}
+    },
+    "y": {
+      "field": "Temperature",
+      "type": "quantitative",
+      "axis": {"tickCount": 12},
+      "scale": {"type": "linear", "domain": [-10, 50]}
+    },
+    "color": {"field": "Measurement", "type": "nominal"}
+  }
+}
