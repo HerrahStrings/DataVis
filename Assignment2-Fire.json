@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 600,
+  "height": 400,
+  "layer": [
+    {
+      "data": {
+        "url": "https://herrahstrings.github.io/DataVis/AUS_MAINLAND_SIMPLIFIED.json",
+        "format": {"type": "topojson", "feature": "Main"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "data": {"url": "https://herrahstrings.github.io/DataVis/fire_nrt_J1V-FULL.csv"},
+      "projection": {"type": "equirectangular"},
+      "mark": {"type": "point"},
+      "encoding": {
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "tooltip": [
+          {
+            "field": "brightness",
+            "type": "quantitative",
+            "title": "Brightness"
+          }
+        ]
+      }
+    }
+  ]
+ }

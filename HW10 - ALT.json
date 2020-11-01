@@ -1,0 +1,150 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://herrahstrings.github.io/DataVis/weatherAUS2.csv"
+  },
+  "params": [
+    {
+      "name": "Max_MaxTemp_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 28,
+        "max": 45,
+        "step": 1,
+        "name": "Minimum Highest Temperature: "
+      }
+    },
+    {
+      "name": "Measurement_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Lowest Temperature",
+          "Highest Temperature",
+          "Average Daily Min Temperature",
+          "Average Daily Max Temperature"
+        ],
+        "labels": [
+          "Show All",
+          "Lowest Temperature",
+          "Highest Temperature",
+          "Average Daily Min Temperature",
+          "Average Daily Max Temperature"
+        ],
+        "name": "Measurement Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum['Measurement'] != 'Highest Temperature' || datum['Temperature'] > Max_MaxTemp_Above"},
+    {
+      "filter": "Measurement_selection == null || datum['Measurement'] == Measurement_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year_Frac",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": {"tickCount": 11},
+      "scale": {"type": "linear", "domain": [2007, 2018]}
+    },
+    "y": {
+      "field": "Temperature",
+      "type": "quantitative",
+      "axis": {"tickCount": 12},
+      "scale": {"type": "linear", "domain": [-10, 50]}
+    },
+    "color": {
+      "field": "Measurement",
+      "type": "nominal"
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "measurement_highlight": {
+          "type": "multi",
+          "fields": ["Measurement"],
+          
+          "bind": "legend"
+        }
+      },
+      "mark": {
+        "type": "line",
+        "point": true
+      },
+      "encoding": {
+        "color": {
+          "field": "Measurement",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {"selection": "measurement_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Year_Q", "type": "nominal", "title": "Quarter"},
+          {"field": "Measurement", "type": "nominal"},
+          {"field": "Temperature", "type": "quantitative", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Year_Q", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Year_Q'] == '2011.1' && datum['Measurement'] == 'Highest Temperature' ||                    datum['Year_Q'] == '2009.2' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2014.1' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2008.2' && datum['Measurement'] == 'Highest Temperature'||                    datum['Year_Q'] == '2012.3' && datum['Measurement'] == 'Average Daily Min Temperature'||                    datum['Year_Q'] == '2016.1' && datum['Measurement'] == 'Average Daily Min Temperature'||                    datum['Year_Q'] == '2010.3' && datum['Measurement'] == 'Average Daily Max Temperature'||                    datum['Year_Q'] == '2017.1' && datum['Measurement'] == 'Average Daily Max Temperature'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Year_Q", "type": "nominal", "title": "Quarter"},
+          {"field": "Measurement", "type": "nominal"},
+          {"field": "Temperature", "type": "quantitative", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Temperature", "type": "quantitative", "format": ".2f"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Year_Q'] == '2011.1' && datum['Measurement'] == 'Highest Temperature' ||                    datum['Year_Q'] == '2009.2' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2014.1' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2008.2' && datum['Measurement'] == 'Highest Temperature'||                    datum['Year_Q'] == '2012.3' && datum['Measurement'] == 'Average Daily Min Temperature'||                    datum['Year_Q'] == '2016.1' && datum['Measurement'] == 'Average Daily Min Temperature'||                    datum['Year_Q'] == '2010.3' && datum['Measurement'] == 'Average Daily Max Temperature'||                    datum['Year_Q'] == '2017.1' && datum['Measurement'] == 'Average Daily Max Temperature'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Year_Q", "type": "nominal", "title": "Quarter"},
+          {"field": "Measurement", "type": "nominal"},
+          {"field": "Temperature", "type": "quantitative", "format": ".2f"}
+        ]
+      }
+    }
+  ]
+}
