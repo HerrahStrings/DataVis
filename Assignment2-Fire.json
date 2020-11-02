@@ -2,29 +2,48 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 600,
   "height": 400,
+  "params":[
+    {
+      "name":"DateSelectionMonth",
+      "value": "2019-12",
+      "bind": {
+        "input": "select", 
+        "options": ["2019-12", "2020-01", "2020-02", "2020-03"],
+        "labels": ["Dec 19", "Jan 20", "Feb 20", "March 20"]
+      }
+    },
+    {
+        "name":"DateSelectionDay",
+        "value": 1,
+        "bind": {"input": "range", "min": 1,"max": 31,"step": 1}
+    }
+  ],
   "layer": [
     {
       "data": {
         "url": "https://herrahstrings.github.io/DataVis/AUS_MAINLAND_SIMPLIFIED.json",
         "format": {"type": "topojson", "feature": "Main"}
       },
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+      "projection": {"type": "equirectangular"}
     },
+    
     {
-      "data": {"url": "https://herrahstrings.github.io/DataVis/fire_nrt_J1V-FULL.csv"},
+      "data": {"url": "https://herrahstrings.github.io/DataVis/fire_grid.json",
+        "format": {"type": "topojson", "feature": "grid"}},
+      "mark": {"type": "geoshape", "fill": "black", "stroke": "red"},
+      "transform": [
+        {"calculate": "toDate(datum.properties.from_date)", "as": "fromDate"},
+        {"filter": "toDate(datum.properties.from_date) <= toDate(DateSelectionMonth + '-' + format(DateSelectionDay, '02d'))"},
+        {"filter": "toDate(datum.properties.from_date) >=  toDate(DateSelectionMonth + '-' + format(DateSelectionDay, '02d'))"},
+        {"calculate": "toDate(DateSelectionMonth + '-' + format(DateSelectionDay, '02d'))", "as": "fromDate2"}
+	  ],
       "projection": {"type": "equirectangular"},
-      "mark": {"type": "point"},
       "encoding": {
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "longitude": {"field": "longitude", "type": "quantitative"},
         "tooltip": [
-          {
-            "field": "brightness",
-            "type": "quantitative",
-            "title": "Brightness"
-          }
+          {"field": "fromDate2", "type": "temporal", "title": "From Date"}
         ]
       }
     }
   ]
- }
+}
