@@ -2,21 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 600,
   "height": 400,
-  "params":[
+  "params": [
     {
-      "name":"DateSelectionMonth",
-      "value": "2019-12",
-      "bind": {
-        "input": "select", 
-        "name": "Month",
-        "options": ["2019-12", "2020-01", "2020-02", "2020-03"],
-        "labels": ["Dec 19", "Jan 20", "Feb 20", "March 20"]
-      }
-    },
-    {
-        "name":"DateSelectionDay",
-        "value": 1,
-        "bind": {"input": "range", "min": 1,"max": 31,"step": 1, "name": "Day"}
+      "name": "DateSelectionDay",
+      "value": 1,
+      "bind": {"input": "range", "min": 1, "max": 95, "step": 1, "name": "Day"}
     }
   ],
   "layer": [
@@ -28,19 +18,25 @@
       "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
     },
     {
-      "data": {"url": "https://herrahstrings.github.io/DataVis/fire_grid.json",
-        "format": {"type": "topojson", "feature": "grid"}},
-      "mark": {"type": "geoshape"},
+      "data": {
+        "url": "https://herrahstrings.github.io/DataVis/fire_grid.json",
+        "format": {"type": "topojson", "feature": "grid"}
+      },
+      "mark": {"type": "geoshape", "stroke": "black", "fill": "red"},
       "transform": [
         {"calculate": "toDate(datum.properties.from_date)", "as": "fromDate"},
-       {"calculate": "toDate(datum.properties.to_date)", "as": "toDate"},        
-        {"filter": "toDate(datum.properties.from_date) <= toDate(DateSelectionMonth + '-' + format(DateSelectionDay, '02d'))"}
-	  ],
+        {"calculate": "toDate(datum.properties.to_date)", "as": "toDate"},
+        {
+          "filter": "toDate(datum.properties.from_date) <= toDate('2019-11-30') + DateSelectionDay * 60 * 60 * 24 * 1000"
+        }
+      ],
       "projection": {"type": "equirectangular"},
       "encoding": {
         "stroke": {
-          "condition": {"test": "toDate(datum.properties.to_date) >=  toDate(DateSelectionMonth + '-' + format(DateSelectionDay, '02d'))", "value": "red"},
-          "value": "black"
+          "condition": {
+            "test": "toDate(datum.properties.to_date) >=  toDate('2019-11-30') + DateSelectionDay * 60 * 60 * 24 * 1000",
+            "value": "red"
+          }
         },
         "opacity": {
           "field": "properties.avg_bright",
@@ -50,10 +46,40 @@
           "legend": {"symbolType": "square"}
         },
         "tooltip": [
-          {"field": "fromDate", "type": "temporal", "title": "Earliest Detected"},
+          {
+            "field": "fromDate",
+            "type": "temporal",
+            "title": "Earliest Detected"
+          },
           {"field": "toDate", "type": "temporal", "title": "Latest Detected"},
-          {"field": "properties.avg_bright", "type": "quantitative", "title": "Brightness (Kelvin)", "format": ".2f"}          
+          {
+            "field": "properties.avg_bright",
+            "type": "quantitative",
+            "title": "Brightness (Kelvin)",
+            "format": ".2f"
+          }
         ]
+      }
+    },
+    {
+      "mark": {"type": "text"},
+      "data": {"values": [{"color": "Burning"}, {"color": "Burned"}]},
+      "transform": [
+        {
+          "calculate": "toDate('2019-11-30') + DateSelectionDay * 60 * 60 * 24 * 1000",
+          "as": "SelectedDate"
+        }
+      ],
+      "encoding": {
+        "text": {"field": "SelectedDate", "type": "temporal"},
+        "y": {"value": 10},
+        "color": {
+          "field": "color",
+          "scale": {"range": ["red", "#000"]},
+          "sort": false,
+          "type": "nominal",
+          "legend": {"title": "Area Status", "symbolType": "square"}
+        }
       }
     }
   ]
