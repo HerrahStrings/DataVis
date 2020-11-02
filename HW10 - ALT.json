@@ -99,7 +99,7 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -12,
+        "dx": -10,
         "fontSize": 11.5,
         "fontStyle": "italic"
       },
@@ -108,7 +108,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Year_Q'] == '2011.1' && datum['Measurement'] == 'Highest Temperature' ||                    datum['Year_Q'] == '2009.2' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2014.1' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2008.2' && datum['Measurement'] == 'Highest Temperature'||                    datum['Year_Q'] == '2012.3' && datum['Measurement'] == 'Avg Daily Min Temperature'||                    datum['Year_Q'] == '2016.1' && datum['Measurement'] == 'Avg Daily Min Temperature'||                    datum['Year_Q'] == '2010.3' && datum['Measurement'] == 'Avg Daily Max Temperature'||                    datum['Year_Q'] == '2017.1' && datum['Measurement'] == 'Avg Daily Max Temperature'",
+            "test": "datum['Year_Q'] == '2011.1' && datum['Measurement'] == 'Highest Temperature' ||                    datum['Year_Q'] == '2009.2' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2014.1' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2008.2' && datum['Measurement'] == 'Highest Temperature'",
             "value": 1
           },
           "value": 0
@@ -124,7 +124,7 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 12,
+        "dx": 10,
         "fontSize": 11.5,
         "fontStyle": "italic"
       },
@@ -133,7 +133,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Year_Q'] == '2011.1' && datum['Measurement'] == 'Highest Temperature' ||                    datum['Year_Q'] == '2009.2' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2014.1' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2008.2' && datum['Measurement'] == 'Highest Temperature'||                    datum['Year_Q'] == '2012.3' && datum['Measurement'] == 'Avg Daily Min Temperature'||                    datum['Year_Q'] == '2016.1' && datum['Measurement'] == 'Avg Daily Min Temperature'||                    datum['Year_Q'] == '2010.3' && datum['Measurement'] == 'Avg Daily Max Temperature'||                    datum['Year_Q'] == '2017.1' && datum['Measurement'] == 'Avg Daily Max Temperature'",
+            "test": "datum['Year_Q'] == '2011.1' && datum['Measurement'] == 'Highest Temperature' ||                    datum['Year_Q'] == '2009.2' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2014.1' && datum['Measurement'] == 'Lowest Temperature'||                    datum['Year_Q'] == '2008.2' && datum['Measurement'] == 'Highest Temperature'",
             "value": 1
           },
           "value": 0
