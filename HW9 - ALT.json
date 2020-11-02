@@ -2,6 +2,18 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 600,
   "height": 400,
+    "params":[
+    {
+      "name":"EnableFire",
+      "value": false,
+      "bind": {
+        "name": "Fire Damage",
+        "input": "select", 
+        "options": [false, true],
+        "labels": ["Hide", "Show"]
+      }
+    }
+  ],
   "layer": [
     {
       "data": {
@@ -9,6 +21,14 @@
         "format": {"type": "topojson", "feature": "Main"}
       },
       "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "data": {"url": "https://herrahstrings.github.io/DataVis/fire_grid.json",
+        "format": {"type": "topojson", "feature": "grid"}},
+      "mark": {"type": "geoshape", "fill": "black", "stroke": "black"},
+      "transform": [
+        {"filter": "EnableFire"}
+      ]
     },
     {
       "data": {"url": "https://herrahstrings.github.io/DataVis/weatherAUS.csv"},
@@ -21,18 +41,25 @@
         "size": {
           "field": "RainFallAVG",
           "type": "quantitative",
-          "scale": {"domain": [0, 4]},
-          "title": "Average Rainfall (mm)"
+          "scale": {"domain": [0, 6]},
+          "title": "Avg Rainfall (mm)",
+          "legend": {
+            "symbolType": "M 0 -1 Q 0.0833 -0.7889 0.5556 -0.1667 A 0.7111 0.7111 90 1 1 -0.5556 -0.1667 Q -0.0833 -0.7889 0 -1 z"
+          }
         },
         "opacity": {
           "field": "MaxTempAVG",
           "type": "quantitative",
-          "title": "Average Max Temperature °C"
+          "title": "Avg Max Temp °C",
+          "scale": {"domain": [40, 10]},
+          "legend": {
+            "symbolType": "M 0 -1 Q 0.0833 -0.7889 0.5556 -0.1667 A 0.7111 0.7111 90 1 1 -0.5556 -0.1667 Q -0.0833 -0.7889 0 -1 z"
+          }
         },
         "tooltip": [
           {"field": "Location", "type": "nominal", "title": "Location"},
           {
-            "field": "RainFallAVG",
+            "field": "MaxTempAVG",
             "type": "quantitative",
             "title": "Average Max Temp °C"
           },
@@ -44,6 +71,5 @@
         ]
       }
     }
-  ],
-  "config": {}
+  ]
 }
